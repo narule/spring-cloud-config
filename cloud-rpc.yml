@@ -5,7 +5,7 @@ spring:
     gateway:
       routes:
         # 路由ID（一个路由配置一个ID）
-        - id: lock-redis
+        - id: rt-lock-redis
  
           # 通过注册中心来查找服务（lb代表从注册中心获取服务，并且负载均衡）
           uri: lb://lock-redis/
