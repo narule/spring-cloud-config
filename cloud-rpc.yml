@@ -12,7 +12,7 @@ spring:
  
           # 匹配到的以/api/customer/开头的路径都转发到order的服务，相当于访问 lb://ORDER/**
           predicates:
-            - Path=/api/redislocki/**
+            - Path=/api/redislockii/**
           # 去掉匹配到的路径的前2级 这里也就是 /api/customer
           filters:
             - StripPrefix=2
