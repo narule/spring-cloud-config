@@ -17,7 +17,7 @@ spring:
           filters:
             - StripPrefix=2
             
-          - id: user
+       - id: user
  
           # 通过注册中心来查找服务（lb代表从注册中心获取服务，并且负载均衡）
           uri: lb://user/
