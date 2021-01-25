@@ -16,18 +16,6 @@ spring:
           # 去掉匹配到的路径的前2级 这里也就是 /api/customer
           filters:
             - StripPrefix=2
-            
-       - id: user
- 
-          # 通过注册中心来查找服务（lb代表从注册中心获取服务，并且负载均衡）
-          uri: lb://user/
- 
-          # 匹配到的以/api/customer/开头的路径都转发到order的服务，相当于访问 lb://ORDER/**
-          predicates:
-            - Path=/api/user/**
-          # 去掉匹配到的路径的前2级 这里也就是 /api/customer
-          filters:
-            - StripPrefix=2
       discovery:
         locator:
           enabled: true
