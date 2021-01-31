@@ -1,0 +1,42 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 路由ID（一个路由配置一个ID）
+        - id: eureka-c
+ 
+          # 通过注册中心来查找服务（lb代表从注册中心获取服务，并且负载均衡）
+          uri: lb://eureka-client/
+ 
+          # 匹配到的以/api/customer/开头的路径都转发到order的服务，相当于访问 lb://ORDER/**
+          predicates:
+            - Path=/api/eureka/**
+          # 去掉匹配到的路径的前2级 这里也就是 /api/eureka
+          filters:
+            - StripPrefix=2
+       # 路由ID（一个路由配置一个ID）
+        - id: feign-c
+ 
+          # 通过注册中心来查找服务（lb代表从注册中心获取服务，并且负载均衡）
+          uri: lb://feign-client/
+ 
+          # 匹配到的以/api/customer/开头的路径都转发到order的服务，相当于访问 lb://ORDER/**
+          predicates:
+            - Path=/api/feign/**
+          # 去掉匹配到的路径的前2级 这里也就是 /api/feign
+          filters:
+            - StripPrefix=2
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+server:
+  port: 12000
+  
+  
+eureka:
+#客户端
+  client:
+#注册中心地址
+    service-url:
+      defaultZone: http://localhost:1999/eureka/
