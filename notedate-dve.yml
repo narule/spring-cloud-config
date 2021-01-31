@@ -1,6 +1,0 @@
-note:
-  data: C
-from: springcloud-dev_01
-
-server:
-  port: 10001
