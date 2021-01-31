@@ -1,2 +1,18 @@
 server:
-  port: 19000
+  port: 1999
+spring:
+  application:
+    name: eureka-server
+eureka:
+  dashboard:
+    path: eureka-server
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 10000
