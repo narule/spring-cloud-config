@@ -1,3 +1,6 @@
+server:
+  port: 12000
+
 spring:
   cloud:
     gateway:
@@ -30,8 +33,7 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
-server:
-  port: 12000
+
   
   
 eureka:
